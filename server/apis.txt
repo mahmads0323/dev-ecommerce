@@ -1,0 +1,18 @@
+Server_URL = http://localhost:8000
+
+Image:
+getImage = http://localhost:8000/image
+postImage = http://localhost:8000/image
+
+Product
+postProduct = http://localhost:8000/product
+getProductById = http://localhost:8000/product/:productId
+getEditProductById = http://localhost:8000/product/edit/:productId
+patchEditProductId = http://localhost:8000/product/edit/:productId
+getProductsByTagsAndText = http://localhost:8000/product//by-tags-and-text
+
+USER
+post user = http://localhost:8000/users
+
+Comment
+post comment = http://localhost:8000/comment
