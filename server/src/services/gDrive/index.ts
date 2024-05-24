@@ -1,12 +1,17 @@
 import { google } from "googleapis";
+import { exit } from "process";
+require("dotenv").config()
 
-const CLIENT_ID =
-  "549687918504-hc89uevfeu8giaqqclsfvd9qfk2k4qof.apps.googleusercontent.com";
-const CLIENT_SECRET = "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";
-const REDIRECT_URL = "https://developers.google.com/oauthplayground";
-const REFRESH_TOKEN =
-  "1//0465cMMkG2NgKCgYIARAAGAQSNwF-L9Iryxe2jJT_R0GvG1fqpYHx7i5BCdM7YebgFLLe_--2nWPF51kqL_0dgzkwT0gIiEKRJGU";
-const SCOPE = "https://www.googleapis.com/auth/drive";
+const CLIENT_ID = process.env.CLIENT_ID;
+const CLIENT_SECRET =process.env.CLIENT_SECRET;
+const REDIRECT_URL = process.env.REDIRECT_URL;
+const REFRESH_TOKEN = process.env.REFRESH_TOKEN;
+const SCOPE = process.env.SCOPE;
+
+if(!CLIENT_ID || !CLIENT_SECRET || !REDIRECT_URL || !REFRESH_TOKEN || !SCOPE){
+  console.log("Invalid google drive credentials")
+  exit();
+}
 
 const AuthorizeToGoogleDrive = () => {
   const oAuthClient2 = new google.auth.OAuth2(
